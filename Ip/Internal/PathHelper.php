@@ -52,9 +52,10 @@ class PathHelper
         $baseDir = ipConfig()->get('baseDir');
 
         $baseDir = str_replace('\\', '/', $baseDir);
-        if (strpos($absoluteFile, $baseDir) !== 0) {
-            throw new \Ip\Exception('Cannot find relative path for file ' . esc($absoluteFile));
-        }
+        #Fix Multi Installation
+        #if (strpos($absoluteFile, $baseDir) !== 0) {
+        #    throw new \Ip\Exception('Cannot find relative path for file ' . esc($absoluteFile));
+        #}
 
         $relativeFile = substr($absoluteFile, strlen($baseDir) + 1);
 
